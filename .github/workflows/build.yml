@@ -2,31 +2,31 @@ name: Build
 
 on:
  push:
- branches: [ master ]
+   branches: [ main ]
  pull_request:
- branches: [ master ]
+   branches: [ main ]
 
 jobs:
  build:
- runs-on: windows-latest
+   runs-on: windows-latest
 
- steps:
- - uses: actions/checkout@v2
+   steps:
+   - uses: actions/checkout@v2
 
- - name: Install Rust
-   uses: actions-rs/toolchain@v1
-   with:
-     toolchain: stable
-     target: x86_64-pc-windows-gnu
-     override: true
+   - name: Install Rust
+     uses: actions-rs/toolchain@v1
+     with:
+       toolchain: stable
+       target: x86_64-pc-windows-gnu
+       override: true
 
- - name: Install SDL2
-   run: |
-     choco install sdl2
-     echo %PATH%
+   - name: Install SDL2
+     run: |
+       choco install sdl2
+       echo %PATH%
 
- - name: Build
-   uses: actions-rs/cargo@v1
-   with:
-     command: build
-     args: --release --target x86_64-pc-windows-gnu
+   - name: Build
+     uses: actions-rs/cargo@v1
+     with:
+       command: build
+       args: --release --target x86_64-pc-windows-gnu
