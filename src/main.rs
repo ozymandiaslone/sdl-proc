@@ -103,8 +103,8 @@ fn run() -> Result<(), String> {
     // IDLE animation
     let blue_witch_idle_texture_idx = insert_texture(get_texture(Path::new("assets/Blue_witch/B_witch_idle.png"), &texture_creator), &mut textures);
     let blue_witch_idle_dest_rect = Rect::new(
-        ((screen_width / 15) as f32 - ( 32.0 * blue_witch_scl_fac / 2.0 )) as i32,             // x
-        ((screen_height as f32 / 1.5) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,            // y
+        ((screen_width / 15) as f32 - ( 32.0 * blue_witch_scl_fac / 2.0 )) as i32,            // x
+        ((screen_height as f32 / 1.5) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,   // y
         (32 as f32 * blue_witch_scl_fac) as u32,                                              // w
         (48 as f32 * blue_witch_scl_fac) as u32,                                              // h
     );                                             
@@ -116,8 +116,8 @@ fn run() -> Result<(), String> {
     let blue_witch_charge_texture_idx = insert_texture(get_texture(Path::new("assets/Blue_witch/B_witch_charge.png"), &texture_creator), &mut textures);
 
     let blue_witch_charge_dest_rect = Rect::new(
-        ((screen_width / 15) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,            // x
-        ((screen_height as f32 / 1.5) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,           // y
+        ((screen_width / 15) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,           // x
+        ((screen_height as f32 / 1.5) as f32 - ( 48.0 * blue_witch_scl_fac / 2.0 )) as i32,  // y
         (48 as f32 * blue_witch_scl_fac) as u32,                                             // w
         (48 as f32 * blue_witch_scl_fac) as u32);                                            // h
 

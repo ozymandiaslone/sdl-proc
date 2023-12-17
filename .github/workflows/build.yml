@@ -1,37 +1,24 @@
-name: Build
+
+name: Rust Build on Windows
 
 on:
- push:
-   branches: [ master ]
- pull_request:
-   branches: [ master ]
+  push:
+    branches:
+      - master
 
 jobs:
- build:
-   runs-on: windows-latest
+  build:
+    runs-on: windows-latest
 
-   steps:
-   - uses: actions/checkout@v2
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-   - name: Install Rust
-     uses: actions-rs/toolchain@v1
-     with:
-       toolchain: stable
-       target: x86_64-pc-windows-gnu
-       override: true
+    - name: Set up Rust
+      uses: actions/setup-rust@v1
+      with:
+        rust-version: stable
 
-   - name: Install vcpkg
-     run: |
-       git clone https://github.com/microsoft/vcpkg.git
-       ./vcpkg/bootstrap-vcpkg.sh
+    - name: Build
+      run: cargo build --release
 
-   - name: Install SDL2
-     run: |
-       ./vcpkg/vcpkg install sdl2:x64-windows
-       echo %PATH%
-
-   - name: Build
-     uses: actions-rs/cargo@v1
-     with:
-       command: build
-       args: --release --target x86_64-pc-windows-gnu
